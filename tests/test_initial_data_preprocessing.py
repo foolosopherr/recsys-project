@@ -4,7 +4,7 @@ from recsys_project.initial_data_preprocessing import (
     preprocess_interactions_dataset,
     clean_text,
     fill_nan_genres,
-    change_genres_feature
+    change_genres_feature,
 )
 import warnings
 import pandas as pd

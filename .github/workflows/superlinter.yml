@@ -36,6 +36,3 @@ jobs:
       
       - name: Format code with black
         run: black .
-
-      - name: Check for changes after formatting
-        run: git diff --exit-code

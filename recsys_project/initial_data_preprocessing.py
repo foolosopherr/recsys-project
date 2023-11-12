@@ -167,7 +167,7 @@ def preprocess_all_three_datasets(
     """
     Importing and preparing all three datasets
     """
-    
+
     try:
         users_df = pd.read_csv(path + "users.csv")
         print("Users CSV file loaded successfully")
@@ -175,7 +175,7 @@ def preprocess_all_three_datasets(
         print("Users file not found. Please check the file path")
     except Exception as e:
         print(f"An error occurred while reading the Users CSV file: {e}")
-        
+
     try:
         items_df = pd.read_csv(path + "items.csv")
         print("Items CSV file loaded successfully")
@@ -183,7 +183,7 @@ def preprocess_all_three_datasets(
         print("Items file not found. Please check the file path")
     except Exception as e:
         print(f"An error occurred while reading the Items CSV file: {e}")
-        
+
     try:
         interactions_df = pd.read_csv(path + "interactions.csv")
         print("Interactions CSV file loaded successfully")
