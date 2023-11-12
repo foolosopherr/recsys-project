@@ -120,7 +120,6 @@ def create_lightfm_dataset(
         interactions_df,
         items_df,
         users_df,
-        dataset,
         users_features,
         items_features,
         interactions,
