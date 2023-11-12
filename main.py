@@ -14,11 +14,8 @@ def main(path="data/", to_random_search=False, to_save=False):
         interactions_df,
         items_df,
         users_df,
-        dataset,
         users_features,
         items_features,
-        user_ids_buffered,
-        item_ids_buffered,
         interactions,
         weights,
     ) = create_lightfm_dataset(path=path)

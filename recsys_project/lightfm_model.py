@@ -3,7 +3,6 @@ from lightfm.cross_validation import random_train_test_split
 from lightfm.evaluation import auc_score, precision_at_k
 from lightfm import LightFM
 from typing import Tuple, Any, Dict, Generator
-import types
 import numpy as np
 import pickle
 from scipy.sparse import csr_matrix, coo_matrix
@@ -129,7 +128,7 @@ def lightfm_random_search(
     train, test = random_train_test_split(
         interactions, test_percentage=test_percentage, random_state=42
     )
-    train_weights, test_weights = random_train_test_split(
+    train_weights, _ = random_train_test_split(
         weights, test_percentage=test_percentage, random_state=42
     )
 

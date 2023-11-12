@@ -1,6 +1,5 @@
 import pandas as pd
 from simplemma import text_lemmatizer
-import numpy as np
 import nltk
 import re
 from typing import Tuple, Any, Dict
@@ -43,16 +42,16 @@ def clean_text(
     text = re.sub(r"\s+", " ", text).strip()
 
     if to_lemmatize:
-        text = text_lemmatizer(text, lang=("ru", "en")) # type: ignore[arg-type, assignment]
+        text = text_lemmatizer(text, lang=("ru", "en"))  # type: ignore[arg-type, assignment]
     else:
-        text = text.split(" ") # type: ignore[assignment]
+        text = text.split(" ")  # type: ignore[assignment]
 
     if remove_stopwords:
         stop_words_ru = set(nltk.corpus.stopwords.words("russian"))
         stop_words_en = set(nltk.corpus.stopwords.words("english"))
 
         stop_words = stop_words_ru.union(stop_words_en)
-        text = [word for word in text if word not in stop_words] # type: ignore[assignment]
+        text = [word for word in text if word not in stop_words]  # type: ignore[assignment]
 
     text = " ".join(text)
     if to_title:
@@ -68,7 +67,7 @@ def fill_nan_genres(items_df: pd.DataFrame) -> pd.DataFrame:
 
     authors_with_nan_genres = items_df[items_df["genres"].isna()]["authors"]
     nan_genre_inds = authors_with_nan_genres.index
-    authors_with_nan_genres = authors_with_nan_genres.values # type: ignore[assignment]
+    authors_with_nan_genres = authors_with_nan_genres.values  # type: ignore[assignment]
 
     genres_author = {}
 
@@ -117,7 +116,7 @@ def change_genres_feature(items_df: pd.DataFrame) -> pd.DataFrame:
 
             temp_.append(genre.capitalize())
 
-        temp_ = ",".join(temp_) # type: ignore[assignment]
+        temp_ = ",".join(temp_)  # type: ignore[assignment]
         items_df.loc[i, "genres"] = temp_
 
     return items_df

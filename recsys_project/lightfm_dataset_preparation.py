@@ -1,16 +1,13 @@
 import pandas as pd
 import numpy as np
 from lightfm.data import Dataset
-from lightfm import LightFM
 from sklearn.feature_extraction.text import CountVectorizer
-from typing import List, Any, Tuple
+from typing import List, Tuple
 from scipy.sparse import csr_matrix
 import re
 
 
-def create_items_feature(
-    genres: str, authors: str, year: int
-) -> str:
+def create_items_feature(genres: str, authors: str, year: int) -> str:
     """
     Feature concationation for further processing
     """
@@ -72,11 +69,8 @@ def create_lightfm_dataset(
     pd.DataFrame,
     pd.DataFrame,
     pd.DataFrame,
-    Dataset,
     csr_matrix,
     csr_matrix,
-    np.ndarray,
-    np.ndarray,
     csr_matrix,
     csr_matrix,
 ]:
@@ -101,9 +95,6 @@ def create_lightfm_dataset(
 
     user_ids_buffered = np.array([x for x in interactions_df["user_id"].unique()])
     item_ids_buffered = np.array([x for x in interactions_df["item_id"].unique()])
-    
-    # user_ids_buffered = np.array(user_ids_buffered)
-    # item_ids_buffered = np.array(item_ids_buffered)
 
     dataset = Dataset()
 
@@ -120,7 +111,7 @@ def create_lightfm_dataset(
             for k, v, w in zip(
                 interactions_df["user_id"].values,
                 interactions_df["item_id"].values,
-                interactions_df["rating"].values + 1, # type: ignore[arg-type, operator]
+                interactions_df["rating"].values + 1,  # type: ignore[arg-type, operator]
             )
         )
     )
@@ -132,8 +123,6 @@ def create_lightfm_dataset(
         dataset,
         users_features,
         items_features,
-        user_ids_buffered,
-        item_ids_buffered,
         interactions,
         weights,
     )

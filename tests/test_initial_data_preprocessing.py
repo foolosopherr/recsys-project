@@ -249,5 +249,4 @@ def test_preprocess_interactions_dataset():
 
     result = preprocess_interactions_dataset(interactions_df)
 
-    # Check if the result matches the expected DataFrame
     pd.testing.assert_frame_equal(result, expected_df)

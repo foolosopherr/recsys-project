@@ -3,14 +3,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import pandas as pd
-import numpy as np
-from lightfm.data import Dataset
-from lightfm import LightFM
-from sklearn.feature_extraction.text import CountVectorizer
-import re
-
-import pytest
-
 
 from recsys_project.lightfm_dataset_preparation import *
 
