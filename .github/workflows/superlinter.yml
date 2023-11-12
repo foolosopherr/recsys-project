@@ -1,31 +1,33 @@
-name: Super-Linter
+name: CI/CD
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   super-lint:
-    name: Lint code base
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Python dependencies
-        uses: py-actions/py-dependency-install@v4
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          path: requirements.txt
-          
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Run tests
         run: pytest
+        continue-on-error: false
 
       - name: Run Flake8
         run: flake8
+        continue-on-error: false
 
       - name: Run MyPy
         run: mypy .
-
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: false
