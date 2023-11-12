@@ -33,4 +33,9 @@ jobs:
       - name: Run MyPy
         run: mypy .
         continue-on-error: false
-        
+      
+      - name: Format code with black
+        run: black .
+
+      - name: Check for changes after formatting
+        run: git diff --exit-code
