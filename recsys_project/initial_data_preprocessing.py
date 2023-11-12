@@ -7,7 +7,6 @@ from typing import Tuple, Any, Dict
 nltk.download("stopwords")
 
 
-
 def preprocess_users_dataset(users_df: pd.DataFrame) -> pd.DataFrame:
     """
     Preprocessing users dataset
@@ -185,7 +184,6 @@ def preprocess_all_three_datasets(
     except Exception as e:
         print(f"An error occurred while reading the Items CSV file: {e}")
         
-    
     try:
         interactions_df = pd.read_csv(path + "interactions.csv")
         print("Interactions CSV file loaded successfully")
@@ -194,7 +192,6 @@ def preprocess_all_three_datasets(
     except Exception as e:
         print(f"An error occurred while reading the Interactions CSV file: {e}")
 
-    
     interactions_df = preprocess_interactions_dataset(interactions_df)
     users_df = preprocess_users_dataset(users_df)
     items_df = preprocess_items_dataset(items_df)

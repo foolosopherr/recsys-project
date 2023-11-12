@@ -1,12 +1,10 @@
+from recsys_project.lightfm_model import random_search
 import warnings
-
-warnings.filterwarnings("ignore")
-
 from scipy.sparse import csr_matrix, coo_matrix
-from typing import Tuple, Dict, Any
+from typing import Tuple
 import types
 
-from recsys_project.lightfm_model import *
+warnings.filterwarnings("ignore")
 
 
 def test_random_search():

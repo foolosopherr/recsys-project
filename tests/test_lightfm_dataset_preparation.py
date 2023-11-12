@@ -1,10 +1,12 @@
+from recsys_project.lightfm_dataset_preparation import (
+    create_items_feature,
+    create_users_feature,
+    custom_tokenizer,
+)
 import warnings
-
-warnings.filterwarnings("ignore")
-
 import pandas as pd
 
-from recsys_project.lightfm_dataset_preparation import *
+warnings.filterwarnings("ignore")
 
 
 def test_create_items_feature():
@@ -41,7 +43,7 @@ def test_create_users_feature():
 
 
 def test_custom_tokenizer():
-    sample_text = "This is a sample text! It  includes special characters like @ and white spaces."
+    sample_text = "This is a sample text! It  includes special characters like @ and white spaces."  # noqa: E501
 
     expected_result = [
         "This",

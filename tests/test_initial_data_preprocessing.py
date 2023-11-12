@@ -1,14 +1,18 @@
+from recsys_project.initial_data_preprocessing import (
+    preprocess_users_dataset,
+    preprocess_items_dataset,
+    preprocess_interactions_dataset,
+    clean_text,
+    fill_nan_genres,
+    change_genres_feature
+)
 import warnings
-
-warnings.filterwarnings("ignore")
-
 import pandas as pd
 import nltk
 import pytest
 
+warnings.filterwarnings("ignore")
 nltk.download("stopwords")
-
-from recsys_project.initial_data_preprocessing import *
 
 
 @pytest.fixture

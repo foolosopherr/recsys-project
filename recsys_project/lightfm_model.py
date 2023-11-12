@@ -2,7 +2,7 @@ import itertools
 from lightfm.cross_validation import random_train_test_split
 from lightfm.evaluation import auc_score, precision_at_k
 from lightfm import LightFM
-from typing import Tuple, Any, Dict, Generator
+from typing import Tuple, Any, Generator
 import numpy as np
 import pickle
 from scipy.sparse import csr_matrix, coo_matrix
@@ -146,9 +146,11 @@ def lightfm_random_search(
         key=lambda x: x[1],
     )
 
-    print(f"Best model: Train AUC {auc_score_train:.5f}, Test AUC {auc_score_test:.5f}")
+    print("Best model:")
+    print()
+    print(f"Train AUC {auc_score_train:.5f}, Test AUC {auc_score_test:.5f}")
     print(
-        f"            Train Precision@10 {train_precision:.5f}, Test Precision@10 {test_precision:.5f}"
+        f"Train Precision@10 {train_precision:.5f}, Test Precision@10 {test_precision:.5f}"
     )
 
     return hyperparams, model
