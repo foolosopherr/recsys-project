@@ -3,10 +3,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import pandas as pd
-from simplemma import text_lemmatizer
-import numpy as np
 import nltk
-import re
 import pytest
 
 nltk.download("stopwords")

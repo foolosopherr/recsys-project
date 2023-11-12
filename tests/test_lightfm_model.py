@@ -2,8 +2,6 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-from lightfm.cross_validation import random_train_test_split
-from lightfm.evaluation import auc_score, precision_at_k
 from scipy.sparse import csr_matrix, coo_matrix
 from typing import Tuple, Dict, Any
 import types
